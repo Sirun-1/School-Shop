@@ -24,14 +24,14 @@ This project demonstrates the development of a simple online shopping platform, 
 
 Online Shop/
 ├── src/java/
-│   ├── control/      # Servlet controllers
-│   ├── dal/          # Data access layer (DAO)
-│   └── model/        # Entity classes
+│   ├── control/      # Servlets handling requests
+│   ├── dal/          # Data Access Layer - database connection & queries
+│   └── model/        # Model classes (User, Product, Order, ...)
 ├── web/
-│   ├── jsp/          # View layer (JSP)
-│   └── WEB-INF/      # Configuration files
-├── SchoolShop.sql    # Database script
-└── build.xml         # Ant build file
+│   ├── jsp/          # JSP pages
+│   └── WEB-INF/      # Configuration, ConnectDB.properties
+├── SchoolShop.sql    # Database initialization script
+└── build.xml         # Build configuration (Ant)
 
 **Setup Instructions**
 
