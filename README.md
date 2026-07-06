@@ -1,54 +1,43 @@
-# Online Shop (School Shop)
+**Online Shop (School Shop)**
+A personal Java web application project simulating a basic e-commerce system, developed to practice backend development and MVC architecture.
 
-A simple e-commerce website built as a personal project for the **PRJ301 – Java Web Application Development** course at FPT University.
+**Overview**
+This project demonstrates the development of a simple online shopping platform, including user authentication, product management, and order processing. It focuses on applying core Java web technologies and structuring a maintainable web application.
 
-## Description
+**Key Features**
 
-A basic web application for online shopping that supports product, category, and user management, along with order processing and basic role-based access control (Role/Permission).
+* User registration and login system
+* Product and category management (CRUD operations)
+* Role-based user management (basic authorization)
+* Shopping cart and order processing (Cart, Order, OrderItem)
+* Database interaction using DAO pattern
 
-## Tech Stack
+**Tech Stack**
 
-- **Language:** Java (JSP, Servlet)
-- **Database:** SQL Server
-- **Server:** Apache Tomcat
-- **Architecture:** Model – DAO – Controller (basic MVC)
-- **IDE:** NetBeans (Ant project)
+* **Backend:** Java (JSP, Servlet)
+* **Database:** SQL Server
+* **Server:** Apache Tomcat
+* **Architecture:** MVC (Model – DAO – Controller)
+* **Tools:** NetBeans (Ant-based project)
 
-## Key Features
+**Project Structure**
 
-- User registration / login
-- Product management (create / update / delete / list)
-- Category management
-- User management with basic role-based permissions
-- Shopping cart and order processing (Cart, Order, OrderItem)
-
-## Project Structure
-
-```
 Online Shop/
 ├── src/java/
-│   ├── control/      # Servlets handling requests
-│   ├── dal/          # Data Access Layer - database connection & queries
-│   └── model/        # Model classes (User, Product, Order, ...)
+│   ├── control/      # Servlet controllers
+│   ├── dal/          # Data access layer (DAO)
+│   └── model/        # Entity classes
 ├── web/
-│   ├── jsp/          # JSP pages
-│   └── WEB-INF/      # Configuration, ConnectDB.properties
-├── SchoolShop.sql    # Database initialization script
-└── build.xml         # Build configuration (Ant)
-```
+│   ├── jsp/          # View layer (JSP)
+│   └── WEB-INF/      # Configuration files
+├── SchoolShop.sql    # Database script
+└── build.xml         # Ant build file
 
-## Getting Started
+**Setup Instructions**
 
-1. Install **SQL Server** and run `SchoolShop.sql` to initialize the database
-2. Open the project in **NetBeans** (Ant-based Java Web project)
-3. Configure the database connection in `web/WEB-INF/ConnectDB.properties`:
-   ```
-   url=jdbc:sqlserver://localhost:1433;databaseName=SchoolShop;trustServerCertificate=true
-   userID=YOUR_USER_HERE
-   password=YOUR_PASSWORD_HERE
-   ```
-4. Deploy and run the project on **Apache Tomcat** through NetBeans
+1. Run `SchoolShop.sql` on SQL Server
+2. Configure database connection in `ConnectDB.properties`
+3. Open in NetBeans and deploy to Apache Tomcat
 
-## Note
-
-This is a personal project developed during coursework to practice Java Web development (JSP/Servlet), relational database operations, and building applications with a basic MVC architecture.
+**Notes**
+This is a self-developed project aimed at strengthening understanding of Java web development, MVC design patterns, and database-driven applications.
