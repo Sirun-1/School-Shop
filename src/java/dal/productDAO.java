@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import model.product;
 import java.sql.Date;
 import model.category;
+import model.bestSellerItem;
 /**
  *
  * @author phucd
@@ -146,9 +147,37 @@ public class productDAO extends DBContext {
                 ResultSet.CONCUR_UPDATABLE);
 
         rs = state.executeQuery(sql);
+        } catch (SQLException ex) {
+        ex.printStackTrace();
+        }
+    return rs;
+}
+    public Vector<bestSellerItem> getBestSellers(int limit) {
+    Vector<bestSellerItem> vector = new Vector<>();
+    String sql = "SELECT TOP (?) p.product_id, p.product_name, p.image_url, "
+               + "SUM(oi.quantity) AS total_sold, "
+               + "SUM(oi.quantity * oi.unit_price) AS total_revenue "
+               + "FROM [dbo].[order_items] oi "
+               + "JOIN [dbo].[products] p ON oi.product_id = p.product_id "
+               + "GROUP BY p.product_id, p.product_name, p.image_url "
+               + "ORDER BY total_sold DESC";
+    try {
+        PreparedStatement ptm = connection.prepareStatement(sql);
+        ptm.setInt(1, limit);
+        ResultSet rs = ptm.executeQuery();
+        while (rs.next()) {
+            bestSellerItem b = new bestSellerItem(
+                rs.getInt("product_id"),
+                rs.getString("product_name"),
+                rs.getString("image_url"),
+                rs.getInt("total_sold"),
+                rs.getDouble("total_revenue")
+            );
+            vector.add(b);
+        }
     } catch (SQLException ex) {
         ex.printStackTrace();
     }
-    return rs;
+    return vector;
 }
 }

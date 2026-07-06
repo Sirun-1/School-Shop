@@ -78,6 +78,12 @@
                     <span class="nav-label">Roles</span>
                 </a>
                 <% } %>
+                <% if (orderPerm != null && orderPerm.isCanView()) { %>
+                <a href="bestsellerjsp" class="nav-item">
+                    <span class="nav-icon"></span>
+                    <span class="nav-label">Best Sellers</span>
+                </a>
+                <% } %>
             </div>
             <% } %>
             <% if (u == null) { %>
